@@ -26,7 +26,7 @@ async def handle_client(reader: asyncio.StreamReader, writer: asyncio.StreamWrit
     await writer.wait_closed()
 
 async def main():
-    server = await asyncio.start_server(handle_client(), HOST, PORT)
+    server = await asyncio.start_server(handle_client, HOST, PORT)
     print(f"[MCP] Server running on {HOST}:{PORT}")
 
     async with server:
